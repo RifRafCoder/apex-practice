@@ -76,4 +76,13 @@ export default class PlatformDevCerCalculator extends LightningElement {
         this.attemptHistory = [...this.attemptHistory, attempt] // ... spread operator - takes everything in object expanded, and then add the original attempt inside
     }
 
+    deleteAttemptHandler(event){
+        //need to use event object to access the info getting passed into parent from child
+        let attemptId = event.detail; //from child detail key
+        //remove the attemptid from the list
+        this.attemptHistory = this.attemptHistory.filter(attempt => attempt.Id != attemptId);
+        //javascript .filter applied on arrays - any records that dont meet the criteria will remove that from list
+        //the list thats left is added back into attemptHistory 
+    }
+
 }

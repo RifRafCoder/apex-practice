@@ -15,7 +15,10 @@ export default class ScoreInformation extends LightningElement {
     }
 
     handleDeleteAttempt(){
-        const deleteEvent = new CustomEvent('deleteattempt', {});
+        const deleteEvent = new CustomEvent('deleteattempt', {
+            detail: this.attemptId
+        });
+        //deleteattempt will be referenced in parent file where c tags are 
         //dispatch function sends event up to parent
         this.dispatchEvent(deleteEvent);
     }
